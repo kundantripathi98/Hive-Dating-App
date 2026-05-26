@@ -20,12 +20,15 @@ export default function AuthPage() {
   password: string
 }
 
+// Redirect to home if user is already logged in
   useEffect(() => {
     if(user && !authLoading){
       router.push("/");
     }
   }, [user, authLoading]);
 
+
+  // Handle form submission for both sign up and sign in
     const handleAuth = async (data:AuthFormData)=>{
         const {email, password} = data;
         // console.log(data);
